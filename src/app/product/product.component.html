@@ -1,0 +1,20 @@
+<!-- <pre>{{ products | async | json }}
+</pre> -->
+
+<form [formGroup]="filterForm" (submit)="filterProduct()">
+  <mat-form-field>
+    <input matInput formControlName="minPrice" placeholder="Min Price">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput formControlName="maxPrice" placeholder="Min Price">
+  </mat-form-field>
+  <button type="submit" mat-raised-button color="primary">
+    Filter
+  </button>
+</form>
+
+<app-product-list [productList]="products$ | async"
+(addToCart)="addProduct($event)"
+></app-product-list>
+
+<app-cart [cart]="cart$ | async"></app-cart>
